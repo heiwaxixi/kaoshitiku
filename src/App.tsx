@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AlertCircle,
   ArrowLeft,
@@ -16,7 +16,6 @@ import {
   GraduationCap,
   Layers,
   ListChecks,
-  LockKeyhole,
   PenLine,
   Plus,
   RotateCcw,
@@ -112,17 +111,6 @@ const importDefaults = {
   difficulty: "中等",
 } as const;
 
-const ACCESS_CODE = import.meta.env.VITE_ACCESS_CODE || "20260702";
-const ACCESS_STORAGE_KEY = "exam-ai-bank-access-granted";
-
-const getStoredAccessGranted = () => {
-  try {
-    return window.localStorage.getItem(ACCESS_STORAGE_KEY) === "true";
-  } catch {
-    return false;
-  }
-};
-
 const getQuestionSubjectText = (bank: QuestionBank) => {
   const subjectList = Array.from(new Set(bank.questions.map((question) => question.subject)));
   return subjectList.length > 0 ? subjectList.join(" / ") : "暂无科目";
@@ -155,9 +143,6 @@ const formatRecordAnswer = (record: AnswerRecord) => {
 };
 
 function App() {
-  const [accessGranted, setAccessGranted] = useState(getStoredAccessGranted);
-  const [accessInput, setAccessInput] = useState("");
-  const [accessError, setAccessError] = useState("");
   const [questionBanks, setQuestionBanks] = useState<QuestionBank[]>(initialQuestionBanks);
   const [viewMode, setViewMode] = useState<ViewMode>("catalog");
   const [activeBankId, setActiveBankId] = useState(initialQuestionBanks[0]?.id ?? "");
@@ -479,32 +464,6 @@ function App() {
     }
     setImportOpen(true);
   };
-
-  const submitAccessCode = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (accessInput.trim() !== ACCESS_CODE) {
-      setAccessError("访问码不正确，请重新输入。");
-      return;
-    }
-    try {
-      window.localStorage.setItem(ACCESS_STORAGE_KEY, "true");
-    } catch {
-      // localStorage 被禁用时仍允许本次会话进入。
-    }
-    setAccessError("");
-    setAccessGranted(true);
-  };
-
-  if (!accessGranted) {
-    return (
-      <AccessGate
-        accessInput={accessInput}
-        accessError={accessError}
-        onAccessInputChange={setAccessInput}
-        onSubmit={submitAccessCode}
-      />
-    );
-  }
 
   return (
     <div className="app-shell">
@@ -1239,48 +1198,6 @@ function CollapseToggle({ collapsed, onClick, label }: { collapsed: boolean; onC
 
 function CollapsedSummary({ text }: { text: string }) {
   return <div className="collapsed-summary">{text}</div>;
-}
-
-function AccessGate({
-  accessInput,
-  accessError,
-  onAccessInputChange,
-  onSubmit,
-}: {
-  accessInput: string;
-  accessError: string;
-  onAccessInputChange: (value: string) => void;
-  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-}) {
-  return (
-    <main className="access-shell">
-      <section className="access-card" aria-label="内测访问码">
-        <div className="access-mark">
-          <LockKeyhole size={24} />
-        </div>
-        <p className="section-label">小规模内测</p>
-        <h1>考试 AI 题库</h1>
-        <p className="access-copy">请输入内测访问码后进入。当前版本为本地规则教练，不调用付费 AI 服务。</p>
-        <form className="access-form" onSubmit={onSubmit}>
-          <label htmlFor="access-code">访问码</label>
-          <input
-            id="access-code"
-            inputMode="numeric"
-            autoComplete="one-time-code"
-            value={accessInput}
-            onChange={(event) => {
-              onAccessInputChange(event.target.value);
-            }}
-            placeholder="请输入访问码"
-          />
-          {accessError ? <p className="access-error">{accessError}</p> : null}
-          <button className="primary-button" type="submit">
-            进入题库
-          </button>
-        </form>
-      </section>
-    </main>
-  );
 }
 
 export default App;

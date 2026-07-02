@@ -14,6 +14,8 @@
 https://heiwaxixi.github.io/kaoshitiku/
 ```
 
+<span style="color:#e11d48;font-weight:700">【改动-直接进入】</span> 已取消访问码入口，打开 GitHub Pages 地址后直接进入题库目录。
+
 ## <span style="color:#0f8f69;font-weight:700">【新增】</span> 本地运行
 
 ```powershell

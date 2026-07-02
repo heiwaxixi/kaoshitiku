@@ -16,7 +16,7 @@ https://heiwaxixi.github.io/kaoshitiku/
 
 <span style="color:#e11d48;font-weight:700">【改动-直接进入】</span> 已取消访问码入口，打开 GitHub Pages 地址后直接进入题库目录。
 
-<span style="color:#2563eb;font-weight:700">【新增-GitHub启动接口】</span> 公网启动接口：`https://heiwaxixi.github.io/kaoshitiku/start.html`；本地可双击 `启动GitHub版.bat` 打开。
+<span style="color:#2563eb;font-weight:700">【新增-GitHub启动接口】</span> 公网启动接口：`https://heiwaxixi.github.io/kaoshitiku/start.html`；本地可双击 `启动GitHub版.bat` 或 `打开考试AI题库-GitHub网页.url` 打开。
 
 ## <span style="color:#0f8f69;font-weight:700">【新增】</span> 本地运行
 

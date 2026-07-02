@@ -70,4 +70,5 @@ if errorlevel 1 (
 echo.
 echo Push complete. If this is the first deployment, open GitHub repository Settings ^> Pages and set Source to GitHub Actions.
 echo The final URL will usually be: https://heiwaxixi.github.io/%REPO_NAME%/
+echo GitHub launcher URL: https://heiwaxixi.github.io/%REPO_NAME%/start.html
 pause

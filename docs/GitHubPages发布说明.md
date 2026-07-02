@@ -10,6 +10,8 @@ https://heiwaxixi.github.io/kaoshitiku/
 
 <span style="color:#e11d48;font-weight:700">改动：</span>已取消访问码入口，公网地址打开后直接进入题库目录。
 
+<span style="color:#2563eb;font-weight:700">新增：</span>GitHub 启动接口为 `https://heiwaxixi.github.io/kaoshitiku/start.html`，该页面会自动跳转到题库目录，并提供手动进入按钮作为兜底。
+
 <span style="color:#0f8f69;font-weight:700">新增：</span>发布工作流文件位于 `.github/workflows/pages.yml`，推送到 `main` 分支后会自动构建并部署 `dist`。
 
 <span style="color:#0f8f69;font-weight:700">新增：</span>本机可双击 `发布到GitHubPages.bat`，脚本会检查 GitHub 登录、构建项目、创建或绑定公开仓库并推送。

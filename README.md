@@ -16,7 +16,7 @@ https://heiwaxixi.github.io/kaoshitiku/
 
 <span style="color:#e11d48;font-weight:700">【改动-直接进入】</span> 已取消访问码入口，打开 GitHub Pages 地址后直接进入题库目录。
 
-<span style="color:#2563eb;font-weight:700">【新增-GitHub启动接口】</span> 公网启动接口：`https://heiwaxixi.github.io/kaoshitiku/start.html`；本地可双击 `启动GitHub版.bat` 或 `打开考试AI题库-GitHub网页.url` 打开。
+<span style="color:#2563eb;font-weight:700">【改动-GitHub启动接口】</span> 文件夹内只保留一个启动入口：双击 `打开考试AI题库-GitHub网页.url`，直接打开 GitHub Pages 题库网页。
 
 ## <span style="color:#0f8f69;font-weight:700">【新增】</span> 本地运行
 
@@ -59,7 +59,6 @@ actions/deploy-pages
 - `src/styles.css`：响应式界面样式。
 - `public/manifest.webmanifest`：PWA 安装信息。
 - `public/service-worker.js`：PWA 缓存脚本。
-- `public/start.html`：GitHub Pages 公网启动接口，打开后自动进入题库目录。
 - `.github/workflows/pages.yml`：GitHub Pages 自动部署工作流。
 
 ## <span style="color:#2563eb;font-weight:700">【新增】</span> 导入格式

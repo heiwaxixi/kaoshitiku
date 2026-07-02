@@ -1,7 +1,7 @@
-const CACHE_NAME = "exam-ai-bank-v3-github-pages";
+const CACHE_NAME = "exam-ai-bank-v4-github-start";
 const scopeUrl = self.registration.scope;
 const resolveScopeUrl = (path) => new URL(path, scopeUrl).toString();
-const APP_SHELL = ["", "manifest.webmanifest", "icon.svg"].map(resolveScopeUrl);
+const APP_SHELL = ["", "start.html", "manifest.webmanifest", "icon.svg"].map(resolveScopeUrl);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
